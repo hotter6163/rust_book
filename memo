@@ -3,3 +3,6 @@ rustup doc
 
 // スタイルの統一
 rustfmt
+
+// gitを使用しない
+cargo new <file name> --vcs none
