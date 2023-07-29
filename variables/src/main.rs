@@ -1,14 +1,22 @@
+use std::io;
+
 fn main() {
-    let x = 5;
-    let x = x + 1;
+    let a = [1, 2, 3, 4, 5];
 
-    {
-        let x = x * 2;
-        println!("The value of x in the inner scope is: {}", x);
-    }
+    println!("Please enter an array index.");
 
-    println!("The value of x is: {}", x);
+    let mut index = String::new();
 
-    let spaces = "   ";
-    let spaces = spaces.len();
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read index");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number.");
+
+    let element = a[index];
+
+    println!("The value of the element at index {} is {}", index, element);
 }
