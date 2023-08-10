@@ -1,10 +1,21 @@
 fn main() {
-    let reference_to_nothing = dangle();
-    println!("{}", reference_to_nothing)
+    let s = "hello world";
+    let s1 = String::from("hello world");
+
+    let word = first_word(&s);
+    let word2 = first_word(&s1);
+
+    println!("{} {}", word, word2);
 }
 
-fn dangle() -> String {
-    let s = String::from("hello");
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
 
-    s
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+
+    &s[..]
 }
