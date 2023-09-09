@@ -1,13 +1,16 @@
-mod read_username_from_file;
+mod functions;
 
-use read_username_from_file::read_username_from_file;
-use std::{fs::File, io::ErrorKind};
+use functions::read_username_from_file;
+// use std::{fs::File, io::ErrorKind};
+use std::net::IpAddr;
 
 fn main() {
     // let f = File::open("hello.txt").expect("Failed to open hello.txt");
 
     let s = read_username_from_file().unwrap();
-    println!("{}", s)
+    println!("{}", s);
+
+    let home: IpAddr = "127.0.0.1".parse().unwrap();
 
     // let f = match f {
     //     Ok(file) => file,
